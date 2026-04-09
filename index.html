@@ -529,6 +529,13 @@
 
     @keyframes rule-fade { to { opacity: 1; } }
 
+    /* Preserve original casing for brand-specific words (e.g. SaaS)
+       when placed inside an uppercase-transformed parent. */
+    .cased {
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
     /* Keyword pills — core service domains */
     .keywords {
       list-style: none;
@@ -837,8 +844,8 @@
           <span data-lang-content="en">SEOUL · KR</span>
         </span>
         <span>
-          <span data-lang-content="ko">AI | 데이터 | SaaS | R&amp;D</span>
-          <span data-lang-content="en">AI | DATA | SAAS | R&amp;D</span>
+          <span data-lang-content="ko">AI | 데이터 | <span class="cased">SaaS</span> | R&amp;D</span>
+          <span data-lang-content="en">AI | DATA | <span class="cased">SaaS</span> | R&amp;D</span>
         </span>
       </nav>
 
@@ -882,7 +889,7 @@
       <ul class="keywords" aria-label="Core domains">
         <li class="keyword">AI</li>
         <li class="keyword">Data</li>
-        <li class="keyword">SaaS</li>
+        <li class="keyword"><span class="cased">SaaS</span></li>
         <li class="keyword">R&amp;D</li>
       </ul>
 

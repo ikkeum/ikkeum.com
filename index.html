@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+  <!-- Theme init — must run before paint to avoid flash.
+       Dark is the brand default: only switches to light when the user
+       either saved that choice or their system is explicitly light mode. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('ikkeum-theme');
+        var theme;
+        if (saved === 'light' || saved === 'dark') {
+          theme = saved;
+        } else if (window.matchMedia &&
+                   window.matchMedia('(prefers-color-scheme: light)').matches) {
+          theme = 'light';
+        } else {
+          theme = 'dark'; // brand default
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
+
   <title>주식회사 이끔 — 곧 만나요</title>
 
   <!-- Primary SEO -->
@@ -134,16 +155,21 @@
        Tokens
        ============================================================ */
     :root {
-      /* Color — warm paper + ink navy
+      /* Color — warm paper + ink navy (light mode)
          Opacities tuned for WCAG AA on #F4F1EA background. */
       --paper:        #F4F1EA;
       --paper-deep:   #ECE7DB;
+      --paper-glow-1: rgba(26, 31, 44, 0.025);
+      --paper-glow-2: rgba(26, 31, 44, 0.018);
       --ink:          #1A1F2C;
       --ink-soft:     rgba(26, 31, 44, 0.80);  /* body / links  — 7.9:1 */
       --ink-mute:     rgba(26, 31, 44, 0.66);  /* meta, labels  — 4.8:1 AA ✓ */
       --ink-faint:    rgba(26, 31, 44, 0.46);  /* separators    — 2.8:1 */
       --rule:         rgba(26, 31, 44, 0.22);
       --rule-soft:    rgba(26, 31, 44, 0.14);
+
+      /* Logo filter — inverted in dark mode */
+      --logo-filter:  none;
 
       /* Typography — single family, varied through weight and tracking */
       --font-display: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
@@ -154,6 +180,28 @@
       /* Motion */
       --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
       --ease-out-expo:  cubic-bezier(0.16, 1, 0.30, 1);
+
+      color-scheme: light;
+    }
+
+    /* ───── Dark mode — deep navy inversion of paper ─────
+       Cream "ink" on deep navy "paper". Editorial tone preserved. */
+    html[data-theme="dark"] {
+      --paper:        #13151C;
+      --paper-deep:   #0E1016;
+      --paper-glow-1: rgba(242, 239, 229, 0.028);
+      --paper-glow-2: rgba(242, 239, 229, 0.020);
+      --ink:          #F2EFE5;
+      --ink-soft:     rgba(242, 239, 229, 0.82);  /* ≈10:1 */
+      --ink-mute:     rgba(242, 239, 229, 0.66);  /* ≈6.9:1 AA ✓ */
+      --ink-faint:    rgba(242, 239, 229, 0.44);
+      --rule:         rgba(242, 239, 229, 0.22);
+      --rule-soft:    rgba(242, 239, 229, 0.12);
+
+      /* Invert navy logo to cream. hue-rotate compensates for color shift. */
+      --logo-filter:  invert(1) hue-rotate(180deg) brightness(1.02);
+
+      color-scheme: dark;
     }
 
     /* ============================================================
@@ -179,9 +227,17 @@
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(ellipse 90% 60% at 70% 20%, rgba(26, 31, 44, 0.025), transparent 60%),
-        radial-gradient(ellipse 80% 50% at 20% 80%, rgba(26, 31, 44, 0.018), transparent 60%);
+        radial-gradient(ellipse 90% 60% at 70% 20%, var(--paper-glow-1), transparent 60%),
+        radial-gradient(ellipse 80% 50% at 20% 80%, var(--paper-glow-2), transparent 60%);
       z-index: 0;
+      transition: background 400ms var(--ease-out-quint);
+    }
+
+    /* Smooth theme transition */
+    body, body::before, .legal__email, .contact-link, .cta, .headline, .rule {
+      transition: background-color 400ms var(--ease-out-quint),
+                  color 400ms var(--ease-out-quint),
+                  border-color 400ms var(--ease-out-quint);
     }
 
     /* ============================================================
@@ -225,6 +281,8 @@
     .brand__mark {
       height: clamp(22px, 1.8vw, 26px);
       width: auto;
+      filter: var(--logo-filter);
+      transition: filter 400ms var(--ease-out-quint);
     }
 
     .brand__mark--en { display: none; }
@@ -262,6 +320,47 @@
     @media (max-width: 720px) {
       .topbar__meta { display: none; }
     }
+
+    /* Right-side control cluster — theme toggle + language toggle */
+    .header-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: clamp(6px, 0.6vw, 10px);
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      color: var(--ink);
+      opacity: 0.55;
+      border-radius: 4px;
+      transition: opacity 350ms var(--ease-out-quint),
+                  transform 400ms var(--ease-out-quint);
+    }
+    .theme-toggle:hover {
+      opacity: 0.95;
+      transform: rotate(-10deg);
+    }
+    .theme-toggle:focus-visible {
+      outline: 1.5px solid var(--ink);
+      outline-offset: 3px;
+      opacity: 1;
+    }
+
+    .theme-toggle__icon {
+      width: 16px;
+      height: 16px;
+    }
+    /* Show moon in light mode (invites switch to dark),
+       show sun in dark mode (invites switch back to light). */
+    html[data-theme="light"] .theme-toggle__icon--sun,
+    html:not([data-theme="dark"]) .theme-toggle__icon--sun { display: none; }
+    html[data-theme="dark"] .theme-toggle__icon--moon { display: none; }
 
     /* Language toggle */
     .lang-toggle {
@@ -710,10 +809,22 @@
         </span>
       </nav>
 
-      <div class="lang-toggle" role="group" aria-label="Language switcher">
-        <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true" lang="ko">KO</button>
-        <span class="lang-divider" aria-hidden="true"></span>
-        <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false" lang="en">EN</button>
+      <div class="header-controls">
+        <button class="theme-toggle" type="button" aria-label="테마 전환" data-theme-toggle>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <div class="lang-toggle" role="group" aria-label="Language switcher">
+          <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true" lang="ko">KO</button>
+          <span class="lang-divider" aria-hidden="true"></span>
+          <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false" lang="en">EN</button>
+        </div>
       </div>
     </header>
 
@@ -848,6 +959,55 @@
         var yearEl = document.getElementById('copyright-year');
         if (yearEl) yearEl.textContent = String(new Date().getFullYear());
       } catch (e) { /* ignore */ }
+
+      // ────────────── Theme toggle ──────────────
+      var THEME_KEY = 'ikkeum-theme';
+      var THEME_COLORS = { light: '#F4F1EA', dark: '#13151C' };
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        var tc = document.querySelector('meta[name="theme-color"]');
+        if (tc) tc.setAttribute('content', THEME_COLORS[theme]);
+        var btn = document.querySelector('[data-theme-toggle]');
+        if (btn) {
+          btn.setAttribute('aria-label',
+            theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환');
+        }
+      }
+
+      function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+      }
+
+      // Sync with inline init (theme-color meta, aria-label)
+      applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+      document.addEventListener('click', function (event) {
+        var target = event.target.closest('[data-theme-toggle]');
+        if (target) {
+          event.preventDefault();
+          toggleTheme();
+        }
+      });
+
+      // Follow system theme changes when no explicit user choice.
+      // Using (prefers-color-scheme: light) to keep dark as the default:
+      // dark is applied unless the system is explicitly light.
+      if (window.matchMedia) {
+        var mqLight = window.matchMedia('(prefers-color-scheme: light)');
+        var handler = function (e) {
+          try {
+            if (!localStorage.getItem(THEME_KEY)) {
+              applyTheme(e.matches ? 'light' : 'dark');
+            }
+          } catch (err) {}
+        };
+        if (mqLight.addEventListener) mqLight.addEventListener('change', handler);
+        else if (mqLight.addListener) mqLight.addListener(handler);
+      }
 
       applyLang(detectInitial());
 

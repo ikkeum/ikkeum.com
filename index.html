@@ -30,7 +30,7 @@
 
   <!-- Primary SEO -->
   <meta name="description" content="주식회사 이끔(Ikkeum Co., Ltd.) 공식 웹사이트 · 2026년 4월 오픈 예정. AI·데이터 분석, 시스템 구축·운영, 자체 SaaS 솔루션까지, 혁신적인 기술로 사람들의 삶을 바꾸고, 모두와 함께 성장하는 미래를 이끕니다." />
-  <meta name="keywords" content="주식회사 이끔, 이끔, Ikkeum, Ikkeum Co Ltd, IK, AI, 데이터 분석, SaaS, 시스템 구축, 시스템 운영, 클라우드, LLM, IT 파트너, 기술 파트너, 소프트웨어 개발, 기획, 혁신, 스타트업, 2026 오픈, 커밍순" />
+  <meta name="keywords" content="주식회사 이끔, 이끔, Ikkeum, Ikkeum Co Ltd, IK, AI, 데이터, Data, SaaS, R&amp;D, 연구개발, 시스템 구축, 시스템 운영, 클라우드, LLM, IT 파트너, 기술 파트너, 소프트웨어 개발, 혁신, 스타트업, 2026 오픈, 커밍순" />
   <meta name="author" content="주식회사 이끔" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
@@ -529,14 +529,47 @@
 
     @keyframes rule-fade { to { opacity: 1; } }
 
+    /* Keyword pills — core service domains */
+    .keywords {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: clamp(18px, 2vw, 26px) 0 clamp(16px, 1.8vw, 22px);
+
+      opacity: 0;
+      transform: translateY(10px);
+      animation: reveal-up 900ms var(--ease-out-quint) 820ms forwards;
+    }
+
+    .keyword {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: clamp(10px, 0.78vw, 12px);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      transition: border-color 300ms var(--ease-out-quint),
+                  color 300ms var(--ease-out-quint),
+                  background 300ms var(--ease-out-quint);
+    }
+
     .description {
       max-width: 36em;
       font-size: clamp(15px, 1.05vw, 17px);
       font-weight: 400;
       line-height: 1.7;
       color: var(--ink-soft);
-      margin-top: clamp(16px, 1.8vw, 24px);
-      margin-bottom: clamp(26px, 3vw, 40px);
+      margin-top: 0;
+      margin-bottom: clamp(22px, 2.6vw, 36px);
       word-break: keep-all;
 
       opacity: 0;
@@ -754,7 +787,7 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
       }
-      .topbar, .meta-line, .headline, .description, .cta, .footbar, .legal { opacity: 1 !important; transform: none !important; }
+      .topbar, .meta-line, .headline, .keywords, .description, .cta, .footbar, .legal { opacity: 1 !important; transform: none !important; }
       .rule, .rule--mini { transform: scaleX(1) !important; opacity: 1 !important; }
       .footbar__status::before { animation: none !important; }
     }
@@ -804,8 +837,8 @@
           <span data-lang-content="en">SEOUL · KR</span>
         </span>
         <span>
-          <span data-lang-content="ko">AI / 데이터 / SaaS</span>
-          <span data-lang-content="en">AI / DATA / SAAS</span>
+          <span data-lang-content="ko">AI | 데이터 | SaaS | R&amp;D</span>
+          <span data-lang-content="en">AI | DATA | SAAS | R&amp;D</span>
         </span>
       </nav>
 
@@ -846,6 +879,13 @@
 
       <hr class="rule rule--mini" aria-hidden="true" />
 
+      <ul class="keywords" aria-label="Core domains">
+        <li class="keyword">AI</li>
+        <li class="keyword">Data</li>
+        <li class="keyword">SaaS</li>
+        <li class="keyword">R&amp;D</li>
+      </ul>
+
       <p class="description">
         <span data-lang-content="ko" lang="ko">
           우리는 혁신적인 기술로 사람들의 삶을 바꾸고,
@@ -869,7 +909,10 @@
     <footer class="site-footer">
       <div class="footbar">
         <span>© <span id="copyright-year">2026</span> Ikkeum Co., Ltd.</span>
-        <span class="footbar__center">A new chapter begins</span>
+        <span class="footbar__center">
+          <span data-lang-content="ko">새로운 장의 시작</span>
+          <span data-lang-content="en">A new chapter begins</span>
+        </span>
         <span class="footbar__status" data-lang-content="ko">진행 중</span>
         <span class="footbar__status" data-lang-content="en">In progress</span>
       </div>

@@ -204,7 +204,9 @@
        ============================================================ */
     .topbar {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      /* Fixed brand slot prevents layout shift when logo changes on lang toggle.
+         EN logo ≈ 117px wide at 26px height; KO logo ≈ 75px. Slot sized for EN + margin. */
+      grid-template-columns: clamp(100px, 9vw, 132px) 1fr auto;
       align-items: center;
       gap: clamp(16px, 3vw, 48px);
 
@@ -217,6 +219,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      justify-self: start;
     }
 
     .brand__mark {
@@ -244,7 +247,7 @@
       position: relative;
     }
 
-    .topbar__meta span + span::before {
+    .topbar__meta > span + span::before {
       content: '';
       position: absolute;
       left: calc(clamp(18px, 2.4vw, 36px) / -2 - 1px);

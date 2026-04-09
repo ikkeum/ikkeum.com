@@ -1,6 +1,6 @@
 # ikkeum.com
 
-> 주식회사 이끔(Ikkeum Inc.) 공식 웹사이트
+> 주식회사 이끔(Ikkeum Co., Ltd.) 공식 웹사이트
 
 본 사이트 오픈 전까지 임시로 노출되는 **커밍순(Coming Soon) 랜딩 페이지**입니다. 단일 HTML 파일로 구성되어 정적 호스팅 어디에서도 즉시 배포할 수 있습니다.
 
@@ -150,6 +150,6 @@ open http://localhost:8000
 
 ## 라이선스
 
-© 2026 주식회사 이끔(Ikkeum Inc.). All rights reserved.
+© 2026 주식회사 이끔(Ikkeum Co., Ltd.). All rights reserved.
 
 본 저장소의 코드와 디자인은 주식회사 이끔의 자산이며, 무단 복제·배포·사용을 금지합니다.

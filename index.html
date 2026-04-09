@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>주식회사 이끔 — 곧 만나요</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="주식회사 이끔(Ikkeum Inc.) 공식 웹사이트. 혁신적인 기술로 사람들의 삶을 바꾸고, 모두와 함께 성장하는 미래를 이끕니다." />
+  <meta name="keywords" content="주식회사 이끔, 이끔, Ikkeum, Ikkeum Inc, IK, 기술, 혁신, 성장, 스타트업" />
+  <meta name="author" content="주식회사 이끔" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#1A1F2C" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <link rel="canonical" href="https://ikkeum.com/" />
+  <link rel="alternate" hreflang="ko" href="https://ikkeum.com/" />
+  <link rel="alternate" hreflang="en" href="https://ikkeum.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://ikkeum.com/" />
+
+  <!-- Favicon / App icons (square IK symbol) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="static/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="static/favicon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon-180.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="주식회사 이끔" />
+  <meta property="og:url" content="https://ikkeum.com/" />
+  <meta property="og:title" content="주식회사 이끔 — 곧 만나요" />
+  <meta property="og:description" content="혁신적인 기술로 사람들의 삶을 바꾸고, 모두와 함께 성장하는 미래를 이끕니다." />
+  <meta property="og:image" content="https://ikkeum.com/static/ikkeum_logo_kr.png" />
+  <meta property="og:image:alt" content="주식회사 이끔 로고" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ikkeum Inc. — Coming Soon" />
+  <meta name="twitter:description" content="We transform lives through innovative technology, leading a future where everyone grows together." />
+  <meta name="twitter:image" content="https://ikkeum.com/static/ikkeum_logo_en.png" />
+  <meta name="twitter:image:alt" content="Ikkeum Inc. logo" />
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://ikkeum.com/#organization",
+    "name": "주식회사 이끔",
+    "alternateName": ["Ikkeum Inc.", "IKKEUM", "이끔"],
+    "url": "https://ikkeum.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ikkeum.com/static/ikkeum_logo_kr.png",
+      "contentUrl": "https://ikkeum.com/static/ikkeum_logo_kr.png"
+    },
+    "image": "https://ikkeum.com/static/ikkeum_logo_kr.png",
+    "email": "contact@ikkeum.com",
+    "description": "혁신적인 기술로 사람들의 삶을 바꾸고, 모두와 함께 성장하는 미래를 이끕니다.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "KR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "contact@ikkeum.com",
+      "availableLanguage": ["Korean", "English"]
+    }
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://ikkeum.com/#website",
+    "url": "https://ikkeum.com/",
+    "name": "주식회사 이끔",
+    "alternateName": "Ikkeum Inc.",
+    "description": "주식회사 이끔 공식 웹사이트",
+    "publisher": { "@id": "https://ikkeum.com/#organization" },
+    "inLanguage": ["ko-KR", "en-US"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+  />
+
+  <style>
+    /* ============================================================
+       Reset
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    img, svg { display: block; max-width: 100%; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       Tokens
+       ============================================================ */
+    :root {
+      /* Color — warm paper + ink navy */
+      --paper:        #F4F1EA;
+      --paper-deep:   #ECE7DB;
+      --ink:          #1A1F2C;
+      --ink-soft:     rgba(26, 31, 44, 0.66);
+      --ink-mute:     rgba(26, 31, 44, 0.42);
+      --ink-faint:    rgba(26, 31, 44, 0.22);
+      --rule:         rgba(26, 31, 44, 0.18);
+      --rule-soft:    rgba(26, 31, 44, 0.10);
+
+      /* Typography — single family, varied through weight and tracking */
+      --font-display: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+                      'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+      --font-sans:    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+                      'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+
+      /* Motion */
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-out-expo:  cubic-bezier(0.16, 1, 0.30, 1);
+    }
+
+    /* ============================================================
+       Base
+       ============================================================ */
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--paper);
+      min-height: 100vh;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "ss01", "ss02", "kern";
+      overflow-x: hidden;
+    }
+
+    /* Faint paper grain via radial — keeps the warm tone alive */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 60% at 70% 20%, rgba(26, 31, 44, 0.025), transparent 60%),
+        radial-gradient(ellipse 80% 50% at 20% 80%, rgba(26, 31, 44, 0.018), transparent 60%);
+      z-index: 0;
+    }
+
+    /* ============================================================
+       Frame — full-bleed editorial layout
+       ============================================================ */
+    .frame {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto auto;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding-block: clamp(22px, 3vw, 38px);
+      padding-inline: clamp(24px, 5.5vw, 88px);
+      row-gap: clamp(16px, 2vw, 28px);
+    }
+
+    /* ============================================================
+       Top bar
+       ============================================================ */
+    .topbar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: clamp(16px, 3vw, 48px);
+
+      opacity: 0;
+      transform: translateY(-8px);
+      animation: reveal-down 900ms var(--ease-out-quint) 80ms forwards;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand__mark {
+      height: clamp(22px, 1.8vw, 26px);
+      width: auto;
+    }
+
+    .brand__mark--en { display: none; }
+    body[data-lang="en"] .brand__mark--ko { display: none; }
+    body[data-lang="en"] .brand__mark--en { display: block; }
+
+    .topbar__meta {
+      display: flex;
+      gap: clamp(18px, 2.4vw, 36px);
+      justify-self: center;
+      font-size: clamp(10px, 0.78vw, 11.5px);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-feature-settings: "tnum" 1;
+    }
+
+    .topbar__meta span {
+      position: relative;
+    }
+
+    .topbar__meta span + span::before {
+      content: '';
+      position: absolute;
+      left: calc(clamp(18px, 2.4vw, 36px) / -2 - 1px);
+      top: 50%;
+      width: 2px;
+      height: 2px;
+      background: var(--ink-faint);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media (max-width: 720px) {
+      .topbar__meta { display: none; }
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      font-family: var(--font-display);
+      font-size: clamp(11px, 0.85vw, 13px);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lang-btn {
+      padding: 6px 10px;
+      color: var(--ink);
+      opacity: 0.42;
+      transition: opacity 400ms var(--ease-out-quint);
+      border-radius: 2px;
+    }
+    .lang-btn:hover { opacity: 0.78; }
+    .lang-btn[aria-pressed="true"] { opacity: 1; font-weight: 700; }
+    .lang-btn:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 4px;
+      opacity: 1;
+    }
+    .lang-divider {
+      width: 1px;
+      height: 11px;
+      background: var(--ink-faint);
+      user-select: none;
+    }
+
+    /* ============================================================
+       Rules (the editorial frame lines)
+       ============================================================ */
+    .rule {
+      border: 0;
+      height: 1px;
+      background: var(--rule);
+      margin: 0;
+      transform-origin: left center;
+      transform: scaleX(0);
+      animation: rule-draw 1100ms var(--ease-out-expo) forwards;
+    }
+
+    .rule--top    { animation-delay: 200ms; }
+    .rule--bottom {
+      transform-origin: right center;
+      animation-delay: 280ms;
+    }
+
+    /* ============================================================
+       Main — left-aligned editorial body
+       ============================================================ */
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: clamp(16px, 2.4vw, 36px);
+      max-width: 100%;
+    }
+
+    .meta-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: clamp(10px, 0.78vw, 11.5px);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: clamp(20px, 2.4vw, 34px);
+      font-variant-numeric: tabular-nums;
+
+      opacity: 0;
+      transform: translateY(12px);
+      animation: reveal-up 900ms var(--ease-out-quint) 380ms forwards;
+    }
+
+    .meta-line__num {
+      color: var(--ink);
+    }
+
+    .meta-line__bar {
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: var(--ink-mute);
+    }
+
+    /* The hero — single-line display */
+    .headline {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(54px, 9vw, 140px);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+      margin: 0;
+      font-feature-settings: "ss01", "ss02", "kern";
+
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal-up 1100ms var(--ease-out-quint) 460ms forwards;
+    }
+
+    /* Tiny period accent — catches the eye at the terminal of the line.
+       Uses padding-left so negative letter-spacing doesn't eat the gap.
+       KO glyphs sit in wider EM boxes, so the period needs extra breathing
+       room compared to Latin. */
+    .headline__dot {
+      display: inline-block;
+      color: var(--ink);
+      letter-spacing: normal;
+    }
+    body[data-lang="ko"] .headline__dot { padding-left: 0.14em; }
+    body[data-lang="en"] .headline__dot { padding-left: 0.03em; }
+
+    .rule--mini {
+      width: clamp(44px, 4.5vw, 64px);
+      margin-top: clamp(22px, 2.8vw, 38px);
+      transform: scaleX(0);
+      transform-origin: left center;
+      opacity: 0;
+      animation:
+        rule-draw 900ms var(--ease-out-expo) 760ms forwards,
+        rule-fade 900ms var(--ease-out-quint) 760ms forwards;
+    }
+
+    @keyframes rule-fade { to { opacity: 1; } }
+
+    .description {
+      max-width: 36em;
+      font-size: clamp(15px, 1.05vw, 17px);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-top: clamp(16px, 1.8vw, 24px);
+      margin-bottom: clamp(26px, 3vw, 40px);
+      word-break: keep-all;
+
+      opacity: 0;
+      transform: translateY(12px);
+      animation: reveal-up 1000ms var(--ease-out-quint) 880ms forwards;
+    }
+
+    body[data-lang="en"] .description {
+      max-width: 38em;
+      word-break: normal;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-display);
+      font-size: clamp(15px, 1.15vw, 18px);
+      font-weight: 500;
+      color: var(--ink);
+      align-self: flex-start;
+      padding: 8px 0;
+
+      opacity: 0;
+      transform: translateY(12px);
+      animation: reveal-up 1000ms var(--ease-out-quint) 980ms forwards;
+    }
+
+    .cta__arrow {
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      position: relative;
+      background: var(--ink);
+      transition: width 500ms var(--ease-out-quint), background 500ms ease;
+    }
+    .cta__arrow::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-right: 1px solid var(--ink);
+      border-top: 1px solid var(--ink);
+      transform: translateY(-50%) rotate(45deg);
+      transition: border-color 500ms ease;
+    }
+
+    .cta__text {
+      position: relative;
+      letter-spacing: 0.005em;
+      transition: color 400ms var(--ease-out-quint);
+    }
+    .cta__text::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -3px;
+      height: 1px;
+      background: var(--ink-faint);
+      transform: scaleX(1);
+      transform-origin: right center;
+      transition: transform 500ms var(--ease-out-quint), background 500ms ease;
+    }
+
+    .cta:hover .cta__arrow { width: 40px; }
+    .cta:hover .cta__text::after {
+      background: var(--ink);
+      transform-origin: left center;
+    }
+    .cta:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 6px;
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       Footer bar
+       ============================================================ */
+    .footbar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: clamp(16px, 3vw, 32px);
+      align-items: center;
+      font-size: clamp(10px, 0.78vw, 11.5px);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-variant-numeric: tabular-nums;
+
+      opacity: 0;
+      transform: translateY(8px);
+      animation: reveal-up 900ms var(--ease-out-quint) 1080ms forwards;
+    }
+
+    .footbar__center {
+      justify-self: center;
+      color: var(--ink-faint);
+    }
+
+    .footbar__status::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--ink);
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: 1px;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1;   transform: scale(1); }
+      50%      { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    /* ============================================================
+       Language visibility (kept lightweight)
+       ============================================================ */
+    [data-lang-content] { display: none; }
+    body[data-lang="ko"] [data-lang-content="ko"],
+    body[data-lang="en"] [data-lang-content="en"] { display: inline; }
+
+    body[data-lang="ko"] [data-lang-content="ko"].is-block,
+    body[data-lang="en"] [data-lang-content="en"].is-block { display: block; }
+
+    [data-lang-content], .brand__mark { transition: opacity 200ms ease; }
+    body.is-lang-switching [data-lang-content],
+    body.is-lang-switching .brand__mark { opacity: 0; }
+
+    /* ============================================================
+       Animations
+       ============================================================ */
+    @keyframes reveal-up {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes reveal-down {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes rule-draw {
+      to { transform: scaleX(1); }
+    }
+
+    /* ============================================================
+       Reduced motion
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .topbar, .meta-line, .headline, .description, .cta, .footbar { opacity: 1 !important; transform: none !important; }
+      .rule, .rule--mini { transform: scaleX(1) !important; opacity: 1 !important; }
+      .footbar__status::before { animation: none !important; }
+    }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 900px) {
+      .frame {
+        padding-block: clamp(20px, 4vw, 32px);
+        padding-inline: clamp(20px, 5vw, 32px);
+      }
+      .footbar { grid-template-columns: 1fr; gap: 6px; }
+      .footbar__center { justify-self: start; }
+      .footbar > span { text-align: left; }
+      .footbar__status { justify-self: start; }
+    }
+
+    @media (max-width: 520px) {
+      .meta-line { gap: 10px; }
+      .description { font-size: 15px; }
+      .cta { font-size: 16px; }
+    }
+  </style>
+</head>
+<body data-lang="ko">
+  <div class="frame">
+
+    <!-- ── Top bar ─────────────────────────────────────── -->
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="주식회사 이끔">
+        <img class="brand__mark brand__mark--ko" src="static/ikkeum_logo_kr_trimmed.png" alt="주식회사 이끔" width="1027" height="354" />
+        <img class="brand__mark brand__mark--en" src="static/ikkeum_logo_en_trimmed.png" alt="Ikkeum Inc." width="1185" height="263" />
+      </a>
+
+      <nav class="topbar__meta" aria-hidden="true">
+        <span>EST. 2026</span>
+        <span>SEOUL · KR</span>
+        <span>VOL 01</span>
+      </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Language switcher">
+        <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true" lang="ko">KO</button>
+        <span class="lang-divider" aria-hidden="true"></span>
+        <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+    </header>
+
+    <hr class="rule rule--top" />
+
+    <!-- ── Main editorial body ─────────────────────────── -->
+    <main class="main">
+      <p class="meta-line">
+        <span class="meta-line__num">N° 01 / 2026</span>
+        <span class="meta-line__bar" aria-hidden="true"></span>
+        <span data-lang-content="ko">오픈을 준비합니다</span>
+        <span data-lang-content="en">In preparation</span>
+      </p>
+
+      <h1 class="headline">
+        <span data-lang-content="ko" lang="ko">곧 만나요<span class="headline__dot">.</span></span>
+        <span data-lang-content="en" lang="en">Coming soon<span class="headline__dot">.</span></span>
+      </h1>
+
+      <hr class="rule rule--mini" aria-hidden="true" />
+
+      <p class="description">
+        <span data-lang-content="ko" lang="ko">
+          우리는 혁신적인 기술로 사람들의 삶을 바꾸고,
+          모두와 함께 성장하는 미래를 이끕니다.
+        </span>
+        <span data-lang-content="en" lang="en">
+          We transform lives through innovative technology,
+          leading a future where everyone grows together.
+        </span>
+      </p>
+
+      <a class="cta" href="mailto:contact@ikkeum.com" aria-label="Send email to contact@ikkeum.com">
+        <span class="cta__arrow" aria-hidden="true"></span>
+        <span class="cta__text">contact@ikkeum.com</span>
+      </a>
+    </main>
+
+    <hr class="rule rule--bottom" />
+
+    <!-- ── Foot bar ────────────────────────────────────── -->
+    <footer class="footbar">
+      <span>© 2026 Ikkeum Inc.</span>
+      <span class="footbar__center">A new chapter begins</span>
+      <span class="footbar__status" data-lang-content="ko">진행 중</span>
+      <span class="footbar__status" data-lang-content="en">In progress</span>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY = 'ikkeum-lang';
+      var SUPPORTED = ['ko', 'en'];
+      var TITLES = {
+        ko: '주식회사 이끔 — 곧 만나요',
+        en: 'Ikkeum Inc. — Coming Soon'
+      };
+
+      function detectInitial() {
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+        } catch (e) {}
+        var nav = (navigator.language || navigator.userLanguage || 'ko').toLowerCase();
+        return nav.indexOf('ko') === 0 ? 'ko' : 'en';
+      }
+
+      function applyLang(lang) {
+        document.body.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang === 'ko' ? 'ko-KR' : 'en-US');
+        document.title = TITLES[lang];
+
+        var btns = document.querySelectorAll('[data-set-lang]');
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].setAttribute('aria-pressed',
+            btns[i].getAttribute('data-set-lang') === lang ? 'true' : 'false');
+        }
+      }
+
+      function switchLang(lang, persist) {
+        if (SUPPORTED.indexOf(lang) === -1) return;
+        if (document.body.getAttribute('data-lang') === lang) return;
+
+        var prefersReduced = window.matchMedia &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReduced) {
+          applyLang(lang);
+        } else {
+          document.body.classList.add('is-lang-switching');
+          window.setTimeout(function () {
+            applyLang(lang);
+            document.body.classList.remove('is-lang-switching');
+          }, 200);
+        }
+
+        if (persist) {
+          try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+        }
+      }
+
+      applyLang(detectInitial());
+
+      document.addEventListener('click', function (event) {
+        var target = event.target;
+        while (target && target !== document.body) {
+          if (target.hasAttribute && target.hasAttribute('data-set-lang')) {
+            event.preventDefault();
+            switchLang(target.getAttribute('data-set-lang'), true);
+            return;
+          }
+          target = target.parentNode;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

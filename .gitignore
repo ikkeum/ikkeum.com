@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Icon?
+
+# Claude Code / OMC
+.claude/
+.omc/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs & temp
+*.log
+*.tmp
+/tmp/
+
+# Node (혹시 향후 도입 시)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

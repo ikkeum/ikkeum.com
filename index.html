@@ -742,6 +742,87 @@
       word-break: keep-all;
     }
 
+    /* ============================================================
+       About
+       ============================================================ */
+    .about__body {
+      max-width: 44em;
+      font-size: clamp(16px, 1.35vw, 20px);
+      line-height: 1.85;
+      color: var(--text);
+      word-break: keep-all;
+    }
+    .about__body strong { color: var(--heading); font-weight: 600; }
+
+    .about__facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin-top: clamp(28px, 3.6vw, 44px);
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      font-variant-numeric: tabular-nums;
+    }
+    .about__facts .cased { letter-spacing: 0.1em; }
+
+    /* ============================================================
+       Contact
+       ============================================================ */
+    .contact__title {
+      font-size: clamp(32px, 4.6vw, 58px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+      color: var(--heading);
+      word-break: keep-all;
+    }
+    .contact__sub {
+      margin-top: 16px;
+      font-size: clamp(15px, 1.15vw, 17.5px);
+      line-height: 1.7;
+      color: var(--text-mute);
+      max-width: 38em;
+      word-break: keep-all;
+    }
+
+    .contact__links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: clamp(32px, 4.4vw, 52px);
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      align-self: flex-start;
+      padding: 10px 0;
+      font-size: clamp(22px, 2.8vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--heading);
+      font-variant-numeric: tabular-nums;
+      transition: color 300ms var(--ease-out-quint);
+    }
+    .contact-link__arrow {
+      display: inline-block;
+      color: var(--text-faint);
+      transition: color 300ms var(--ease-out-quint), transform 300ms var(--ease-out-quint);
+    }
+    .contact-link:hover { color: var(--accent); }
+    .contact-link:hover .contact-link__arrow {
+      color: var(--accent);
+      transform: translateX(6px);
+    }
+    .contact-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
     /* Scroll reveal — elements start hidden, .is-visible lifts them in */
     .reveal {
       opacity: 0;
@@ -1103,8 +1184,76 @@
         </div>
       </div>
     </section>
-    <section class="section" id="about"></section>
-    <section class="section section--raise" id="contact"></section>
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="section-head__meta"><span>03</span><span data-lang-content="ko">회사</span><span data-lang-content="en">About</span></p>
+          <h2 class="section-head__title">
+            <span data-lang-content="ko" lang="ko">주식회사 이끔</span>
+            <span data-lang-content="en" lang="en">Ikkeum Co., Ltd.</span>
+          </h2>
+        </div>
+
+        <p class="about__body reveal">
+          <span data-lang-content="ko" lang="ko">
+            이끔은 <strong>AI·데이터·소프트웨어 기술로 제품과 시스템을 만드는 회사</strong>입니다.
+            2026년 서울에서 설립했으며, 팀은 2019년부터 공공·민간 프로젝트와
+            자체 서비스를 만들어 왔습니다. 우리는 혁신적인 기술로 사람들의 삶을 바꾸고,
+            모두와 함께 성장하는 미래를 이끕니다.
+          </span>
+          <span data-lang-content="en" lang="en">
+            Ikkeum <strong>builds products and systems with AI, data, and software</strong>.
+            Founded in Seoul in 2026, our team has been building public and
+            private projects and our own services since 2019. We transform
+            lives through innovative technology, leading a future where
+            everyone grows together.
+          </span>
+        </p>
+
+        <div class="about__facts reveal">
+          <span>
+            <span data-lang-content="ko">설립 2026</span>
+            <span data-lang-content="en">EST. 2026</span>
+          </span>
+          <span>
+            <span data-lang-content="ko">서울 · 대한민국</span>
+            <span data-lang-content="en">SEOUL · KR</span>
+          </span>
+          <span>AI | DATA | <span class="cased">SaaS</span> | R&amp;D</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--raise" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal" style="margin-bottom:0">
+          <p class="section-head__meta"><span>04</span><span data-lang-content="ko">문의</span><span data-lang-content="en">Contact</span></p>
+          <h2 class="contact__title">
+            <span data-lang-content="ko" lang="ko">프로젝트를 시작할<br />준비가 되셨나요?</span>
+            <span data-lang-content="en" lang="en">Ready to start<br />a project?</span>
+          </h2>
+          <p class="contact__sub">
+            <span data-lang-content="ko" lang="ko">
+              이메일 또는 전화로 문의해 주세요. 영업일 기준 24시간 이내에 답변합니다.
+            </span>
+            <span data-lang-content="en" lang="en">
+              Reach out by email or phone. We respond within one business day.
+            </span>
+          </p>
+        </div>
+
+        <div class="contact__links reveal">
+          <a class="contact-link" href="mailto:contact@ikkeum.com">
+            <span>contact@ikkeum.com</span>
+            <span class="contact-link__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="contact-link" href="tel:1877-0737">
+            <span>1877-0737</span>
+            <span class="contact-link__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ── Footer ─────────────────────────────────────────── -->

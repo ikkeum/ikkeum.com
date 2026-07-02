@@ -121,6 +121,33 @@
   }
   </script>
 
+  <!-- Structured Data: Products -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "ThinkCode",
+        "url": "https://think-code.ai",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "description": "1:1 라이브 코딩 튜터링 마켓플레이스",
+        "publisher": { "@id": "https://ikkeum.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "PlanAuto",
+        "url": "https://planauto.kr",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "AI 사업계획서·R&D 연구개발계획서 자동작성 플랫폼",
+        "publisher": { "@id": "https://ikkeum.com/#organization" }
+      }
+    ]
+  }
+  </script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link

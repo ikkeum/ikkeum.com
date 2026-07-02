@@ -447,6 +447,125 @@
       word-break: keep-all;
     }
 
+    /* ============================================================
+       Hero
+       ============================================================ */
+    .hero {
+      min-height: calc(88vh - var(--header-h));
+      min-height: calc(88dvh - var(--header-h));
+      display: flex;
+      align-items: center;
+    }
+
+    /* .wrap centers itself via auto margins inside the flex hero */
+
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: clamp(24px, 3vw, 36px);
+      opacity: 0;
+      transform: translateY(14px);
+      animation: enter-up 900ms var(--ease-out-quint) 120ms forwards;
+    }
+    .keyword {
+      display: inline-flex;
+      align-items: center;
+      font-size: clamp(10.5px, 0.8vw, 12px);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--border-hard);
+      border-radius: 999px;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .keyword--accent {
+      border-color: var(--accent-line);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .cased { text-transform: none; letter-spacing: 0.04em; }
+
+    .hero__title {
+      font-size: clamp(46px, 8vw, 112px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      color: var(--heading);
+      word-break: keep-all;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: enter-up 1100ms var(--ease-out-quint) 240ms forwards;
+    }
+    .hero__title .accent { color: var(--accent); }
+
+    .hero__desc {
+      margin-top: clamp(22px, 3vw, 34px);
+      max-width: 34em;
+      font-size: clamp(15.5px, 1.25vw, 19px);
+      line-height: 1.75;
+      color: var(--text);
+      word-break: keep-all;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: enter-up 1000ms var(--ease-out-quint) 420ms forwards;
+    }
+
+    .hero__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: clamp(30px, 4vw, 48px);
+      opacity: 0;
+      transform: translateY(14px);
+      animation: enter-up 1000ms var(--ease-out-quint) 560ms forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(14.5px, 1.05vw, 16px);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 14px 26px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background-color 300ms var(--ease-out-quint),
+                  border-color 300ms var(--ease-out-quint),
+                  color 300ms var(--ease-out-quint),
+                  transform 300ms var(--ease-out-quint);
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .btn--fill {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn--fill:hover { background: color-mix(in srgb, var(--accent) 86%, #fff); }
+
+    .btn--ghost {
+      border-color: var(--border-hard);
+      color: var(--heading);
+    }
+    .btn--ghost:hover { border-color: var(--accent-line); color: var(--accent); }
+
+    .btn__arrow {
+      display: inline-block;
+      transition: transform 300ms var(--ease-out-quint);
+    }
+    .btn:hover .btn__arrow { transform: translateX(4px); }
+    .btn__arrow--down { transform: rotate(90deg); }
+    .btn:hover .btn__arrow--down { transform: rotate(90deg) translateX(4px); }
+
+    @keyframes enter-up {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Scroll reveal — elements start hidden, .is-visible lifts them in */
     .reveal {
       opacity: 0;
@@ -592,7 +711,45 @@
 
   <!-- ── Main ───────────────────────────────────────────── -->
   <main>
-    <section class="section" id="hero" aria-label="Intro"></section>
+    <section class="section hero" id="hero" aria-label="Intro">
+      <div class="wrap hero__inner">
+        <ul class="keywords" aria-label="Core domains">
+          <li class="keyword keyword--accent">AX</li>
+          <li class="keyword">AI</li>
+          <li class="keyword">Data</li>
+          <li class="keyword">S/W</li>
+        </ul>
+
+        <h1 class="hero__title">
+          <span data-lang-content="ko" lang="ko" class="is-block">기술로 미래를<br />이끕니다<span class="accent">.</span></span>
+          <span data-lang-content="en" lang="en" class="is-block">Leading the future<br />with technology<span class="accent">.</span></span>
+        </h1>
+
+        <p class="hero__desc">
+          <span data-lang-content="ko" lang="ko">
+            우리는 자체 SaaS를 직접 만들어 운영하고,
+            그 경험으로 고객의 시스템과 AI 전환을 설계합니다.
+          </span>
+          <span data-lang-content="en" lang="en">
+            We build and operate our own SaaS products — and bring that
+            experience to our clients' systems and AI transformation.
+          </span>
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--fill" href="#products">
+            <span data-lang-content="ko">제품 보기</span>
+            <span data-lang-content="en">View products</span>
+            <span class="btn__arrow btn__arrow--down" aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn--ghost" href="#contact">
+            <span data-lang-content="ko">프로젝트 문의</span>
+            <span data-lang-content="en">Start a project</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
     <section class="section" id="products"></section>
     <section class="section section--raise" id="services"></section>
     <section class="section" id="about"></section>

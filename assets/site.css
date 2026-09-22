@@ -42,7 +42,7 @@ body{
   font-feature-settings:"ss01","ss02","kern";
   line-height:1.6; word-break:keep-all; overflow-wrap:anywhere;
 }
-img{max-width:100%; display:block}
+img{max-width:100%; height:auto; display:block}
 a{color:inherit; text-decoration:none}
 h1,h2,h3,h4,p{margin:0}
 :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
@@ -219,3 +219,11 @@ html.js .rv.on{opacity:1; transform:none; transition:opacity .55s ease, transfor
 
 /* 로고는 네이비 단색이라 다크 배경에서 묻힌다 → 반전해 paper 톤으로 */
 :root[data-theme="dark"] .hdr__logo img{filter:brightness(0) invert(1) opacity(.93)}
+
+/* 실제 운영 화면 갤러리 */
+.shots{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px}
+.shot{margin:0; border:1px solid var(--ink-14); border-radius:10px; overflow:hidden; background:var(--surface)}
+.shot img{width:100%; height:auto; display:block}
+.shot figcaption{padding:12px 14px; font-size:12.5px; font-weight:700; color:var(--ink-66); border-top:1px solid var(--ink-08)}
+@media (max-width:900px){ .shots{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:620px){ .shots{grid-template-columns:1fr} }
